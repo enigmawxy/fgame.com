@@ -4,7 +4,7 @@ import Label from "./Label"
 
 import "./project.css"
 
-const Project = ({ project, onClick }) => {    
+const Project = ({ project, onClick }) => {
     const className = project.highlight ? "highlight-card" : "normal-card"
 
     return (
@@ -18,6 +18,6 @@ const Project = ({ project, onClick }) => {
             </div>
         </div>
     );
-}
+};
 
 export default Project;

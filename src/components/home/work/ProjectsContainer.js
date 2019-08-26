@@ -6,8 +6,8 @@ import Project from "./Project"
 
 import "./projectsContainer.css"
 
-const ProjectsContainer = ( { projects, activeLabels, projectClick } ) => { 
-    
+const ProjectsContainer = ( { projects, activeLabels, projectClick } ) => {
+
     projects = projects.sort( (a, b) => a.highlight < b.highlight );
 
     const filterActiveProjects = project => {
@@ -15,7 +15,7 @@ const ProjectsContainer = ( { projects, activeLabels, projectClick } ) => {
             return true;
 
         return isProjectActive(project, activeLabels);
-    }
+    };
 
     const isProjectActive = (project, activeLabels) => {
         for(let i=0; i<project.labels.length; i++) {
@@ -25,11 +25,11 @@ const ProjectsContainer = ( { projects, activeLabels, projectClick } ) => {
         }
 
         return false;
-    }
+    };
 
-    return (        
-        <TransitionGroup className="projects-container">                          
-                { projects.filter( filterActiveProjects ).map( project => 
+    return (
+        <TransitionGroup className="projects-container">
+                { projects.filter( filterActiveProjects ).map( project =>
 
                     <CSSTransition
                         key={project.name}
@@ -42,6 +42,6 @@ const ProjectsContainer = ( { projects, activeLabels, projectClick } ) => {
                 ) }
         </TransitionGroup>
     );
-}
+};
 
 export default ProjectsContainer;

@@ -13,7 +13,7 @@ const routes = [
         path: "/",
         // exact: true,
         component: Home
-    }, 
+    },
     // {
     //     name: "Project Details",
     //     path: "/:projectId",
@@ -25,21 +25,23 @@ const routes = [
     // }
 ];
 
-const Routes = () => {    
-    
+// 路由配置，这里就是直接路由到Home组件
+// 没有使用React组件，直接使用匿名箭头函数
+const Routes = () => {
+    // 采集页面访问行为数据
     const logPageView = () => {
         ReactGA.set({ page: window.location.pathname + window.location.search });
         ReactGA.pageview(window.location.pathname + window.location.search);
-    }
+    };
     logPageView();
 
     return (
-        <Router > 
-            <Switch >               
+        <Router >
+            <Switch >
                 { routes.map( route => <Route key={route.name} exact={route.exact} path={route.path} component={route.component} /> ) }
             </Switch>
         </Router>
     );
-}
+};
 
 export default Routes;

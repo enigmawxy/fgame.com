@@ -5,21 +5,21 @@ import Contact from "./contact/Contact";
 
 const SECTIONS = [
     {
-        name: "about",
+        name: "关于",
         component: About
     },
     {
-        name: "work",
+        name: "工作",
         component: WorkContainer
     },
     {
-        name: "blog",
+        name: "博客",
         component: null
     },
     {
-        name: "contact",
+        name: "联系",
         component: Contact
     }
-]   
+];
 
 export default SECTIONS;

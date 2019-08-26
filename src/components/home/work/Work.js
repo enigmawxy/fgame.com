@@ -18,15 +18,15 @@ class Work extends Component {
     onLabelClick = label => {
         const activeLabels = this._addRemoveLabel( label, this.state.activeLabels );
         this.setState( { activeLabels } );
-    }
+    };
 
     clearSelectedLabels  = () => {
         this.setState( { activeLabels: [] } );
-    }
+    };
 
     onProjectClick = projectId => {
         this.props.history.push(projectId)
-    }
+    };
 
     _addRemoveLabel = (label, activeLabels) => {
         const index = activeLabels.indexOf(label);
@@ -36,15 +36,15 @@ class Work extends Component {
             activeLabels.push(label);
 
         return activeLabels;
-    }
+    };
 
     _getAllLabelsFromProjects = projects => {
         const labels = new Set();
         projects.forEach( project => project.labels.forEach( label => labels.add(label) ) );
         return labels;
-    }
+    };
 
-    render () {      
+    render () {
         const { projects } = this.props;
         const { activeLabels } = this.state;
 
@@ -64,6 +64,6 @@ class Work extends Component {
 
 const mapStateToProps = store => ({
     projects: store.projects
-})
+});
 
 export default withRouter(connect(mapStateToProps)(Work));

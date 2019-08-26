@@ -21,21 +21,21 @@ class Home extends Component {
     }
 
     componentWillMount = () => {
-        this.props.fetchProjects()
-    }
+        this.props.fetchProjects();
+    };
 
-    componentDidMount = () => {        
+    componentDidMount = () => {
         window.addEventListener("scroll", this.handleScroll);
-    }
-    
+    };
+
     componentWillUnmount = () => {
         window.removeEventListener('scroll', this.handleScroll);
-    }
+    };
 
     handleScroll = event => {
         this._updateCurrentScroll();
         this._updateCurrentSection();
-    }
+    };
 
     scrollToSection = sectionName => {
         const element = this._getPageElementFromKey(sectionName);
@@ -44,7 +44,7 @@ class Home extends Component {
         if(sectionName === "blog") {
             const win = window.open("https://medium.com/@soffritti.pierfrancesco/latest", '_blank');
             win.focus();
-        }            
+        }
         // ----
 
         if(!element) return;
@@ -54,9 +54,9 @@ class Home extends Component {
             ease: 'inOutQuad',
             duration: 600
         });
-    }
+    };
 
-    _updateCurrentScroll = () => this.setState( { currentScroll: this._getCurrentScroll() } ) 
+    _updateCurrentScroll = () => this.setState( { currentScroll: this._getCurrentScroll() } );
     _getCurrentScroll = () => (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
 
     _updateCurrentSection = () => {
@@ -79,15 +79,16 @@ class Home extends Component {
 
         if(!inSection)
             this._onEnterSection("");
-    }
+    };
 
     _isScrollBottom = () => window.innerHeight + window.scrollY >= document.body.offsetHeight;
-    _onEnterSection = sectionName => this.setState( { currentSection: sectionName } )
-    _getNavBarHeight = () => this.navbar.getBoundingClientRect().height
+    _onEnterSection = sectionName => this.setState( { currentSection: sectionName } );
+    _getNavBarHeight = () => this.navbar.getBoundingClientRect().height;
     _getPageElementFromKey = key => this.refs[key];
 
     render = () => {
-        const { currentSection, currentScroll } = this.state;        
+        const { currentSection, currentScroll } = this.state;
+
         return (
             <div className="root-home" >
                 <div ref={ element => this.navbar = element }>
@@ -95,16 +96,15 @@ class Home extends Component {
                 </div>
 
                 <Header />
-
-                { homeSections
-                    .filter( section => section.component )
-                    .map( section =>
+                {/* 以下代码过滤掉了blog，因为点击blog是进行网站跳转，不是页面内跳转。*/}
+                {
+                    homeSections.filter(section=>section.component)
+                        .map( section =>
                         <div key={section.name} ref={section.name}>
                             { section.name === "work" ? <section.component onShowProjectDetails={() => this.scrollToSection("work")} /> : <section.component /> }
-                        </div> 
+                        </div>
                     )
                 }
-
             </div>
         );
     }
@@ -112,10 +112,10 @@ class Home extends Component {
 
 const mapStateToProps = store => ({
     projects: store.projects
-})
+});
 
 const mapDispatchToProps = dispatch => ({
     fetchProjects: (args) => dispatch(fetchProjects(args))
-})
+});
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Home));

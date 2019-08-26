@@ -15,6 +15,6 @@ const Root = () => {
             <Routes />
         </Provider>
     );
-}
+};
 
 export default Root;

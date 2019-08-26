@@ -8,20 +8,20 @@ import ProjectDetails from "./projectDetails/ProjectDetails";
 
 class WorkContainer extends Component {
 
-    componentDidMount = () => {        
+    componentDidMount = () => {
         this.props.history.listen(this.props.onShowProjectDetails);
-    }
+    };
 
     render () {
         const { location } = this.props;
-        
+
         const key = location.pathname.substring(1);
 
         return (
             <TransitionGroup className="work">
                 <CSSTransition  key={key} classNames='route-fade' timeout={600} >
-                    <Switch location={location} >             
-                        <Route path={"/:projectId"} exact component={ProjectDetails} />  
+                    <Switch location={location} >
+                        <Route path={"/:projectId"} exact component={ProjectDetails} />
                         <Route path={"/"}  component={Work} />
                     </Switch>
                 </CSSTransition>

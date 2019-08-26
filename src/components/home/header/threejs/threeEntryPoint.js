@@ -11,7 +11,7 @@ export default container => {
     render();
 
     function createCanvas(document, container) {
-        const canvas = document.createElement('canvas');     
+        const canvas = document.createElement('canvas');
         container.appendChild(canvas);
         return canvas;
     }
@@ -19,13 +19,13 @@ export default container => {
     function bindEventListeners() {
         window.onresize = resizeCanvas;
         window.onmousemove = mouseMove;
-        resizeCanvas();	
+        resizeCanvas();
     }
 
-    function resizeCanvas() {        
+    function resizeCanvas() {
         canvas.style.width = '100%';
         canvas.style.height= '100%';
-        
+
         canvas.width  = canvas.offsetWidth;
         canvas.height = canvas.offsetHeight;
 
@@ -40,6 +40,7 @@ export default container => {
     }
 
     function render(time) {
+        // 循环调用的实现
         requestAnimationFrame(render);
         sceneManager.update();
     }

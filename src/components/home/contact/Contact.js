@@ -12,16 +12,16 @@ class Contact extends Component {
 
     componentWillMount = () => {
         this.props.fetchSocials()
-    }
+    };
 
     _extractEmail = socials => {
         const email = socials.find( social => social.name === "email");
-        
+
         const index = socials.indexOf(email);
         const filteredSocials = socials.splice(index, 1);
 
         return { filteredSocials, email}
-    }    
+    };
 
     render () {
         const { socials } = this.props;
@@ -47,10 +47,10 @@ class Contact extends Component {
 
 const mapStateToProps = store => ({
     socials: store.socials
-})
+});
 
 const mapDispatchToProps = dispatch => ({
     fetchSocials: (args) => dispatch(fetchSocials(args))
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Contact);

@@ -6,5 +6,6 @@ import registerServiceWorker from './registerServiceWorker';
 
 import './index.css';
 
+// 渲染 Root 组件
 ReactDOM.render(<Root />, document.getElementById('root'));
 registerServiceWorker();

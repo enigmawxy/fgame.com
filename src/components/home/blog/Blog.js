@@ -10,7 +10,7 @@ class Blog extends Component {
 
     componentWillMount = () => {
         this.props.fetchBlogPosts()
-    }
+    };
 
     render () {
         const { blogPosts } = this.props;
@@ -27,10 +27,10 @@ class Blog extends Component {
 
 const mapStateToProps = store => ({
     blogPosts: store.blogPosts
-})
+});
 
 const mapDispatchToProps = dispatch => ({
     fetchBlogPosts: () => dispatch(fetchBlogPosts)
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Blog);

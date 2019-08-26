@@ -4,6 +4,7 @@ import "./navbar.css"
 
 import ReactGA from 'react-ga';
 
+// 定义成了一个功能，不是标准的React组件
 const Navbar = ({items, currentSection, currentScroll, onItemClick}) => {
 
         const className = currentScroll === 0 ? "" : "elevated";
@@ -13,23 +14,23 @@ const Navbar = ({items, currentSection, currentScroll, onItemClick}) => {
                 category: 'User',
                 action: 'Click on navbar item: ' +itemName
             });
-        }
+        };
 
         return (
             <div>
                 <div className={"navbar navbar-dimensions text-unselectable " +className} >
                     { items.map( item => {
-                            return <span 
-                                key={item.name} 
+                            return <span
+                                key={item.name}
                                 onClick={ev => { onItemClick(item.name); onLinkClick(item.name); } }
                                 className={"navbar-item navbar-item-dimensions clickable " + ( item.name === currentSection ? "navbar-item-selected" : "" )}>{item.name}</span>
                         }
-                    )}                    
+                    )}
                 </div>
                 <div className="navbar-dimensions"/>
             </div>
         );
-    
-}
+
+};
 
 export default Navbar;

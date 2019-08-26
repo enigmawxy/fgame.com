@@ -10,12 +10,12 @@ export default canvas => {
     const screenDimensions = {
         width: canvas.width,
         height: canvas.height
-    }
+    };
 
     const mousePosition = {
         x: 0,
         y: 0
-    }
+    };
 
     const scene = buildScene();
     const renderer = buildRender(screenDimensions);
@@ -30,13 +30,13 @@ export default canvas => {
     }
 
     function buildRender({ width, height }) {
-        const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true }); 
+        const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
         const DPR = window.devicePixelRatio ? window.devicePixelRatio : 1;
         renderer.setPixelRatio(DPR);
         renderer.setSize(width, height);
 
         renderer.gammaInput = true;
-        renderer.gammaOutput = true; 
+        renderer.gammaOutput = true;
 
         return renderer;
     }
@@ -45,7 +45,7 @@ export default canvas => {
         const aspectRatio = width / height;
         const fieldOfView = 60;
         const nearPlane = 4;
-        const farPlane = 100; 
+        const farPlane = 100;
         const camera = new THREE.PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane);
 
         camera.position.z = 40;
@@ -54,12 +54,10 @@ export default canvas => {
     }
 
     function createSceneSubjects(scene) {
-        const sceneSubjects = [
+        return [
             new GeneralLights(scene),
             new SceneSubject(scene)
         ];
-
-        return sceneSubjects;
     }
 
     function update() {
@@ -81,13 +79,13 @@ export default canvas => {
 
     function onWindowResize() {
         const { width, height } = canvas;
-        
+
         screenDimensions.width = width;
         screenDimensions.height = height;
 
         camera.aspect = width / height;
         camera.updateProjectionMatrix();
-        
+
         renderer.setSize(width, height);
     }
 
