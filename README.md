@@ -1,3 +1,3 @@
 # Personal website
 
-this website is built with React. Go to [pierfrancescosoffritti.com](https://pierfrancescosoffritti.com)
+this website is built with React. inspired by the [pierfrancescosoffritti.com](https://pierfrancescosoffritti.com)
