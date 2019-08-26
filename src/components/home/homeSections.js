@@ -5,19 +5,19 @@ import Contact from "./contact/Contact";
 
 const SECTIONS = [
     {
-        name: "关于",
+        name: "about",
         component: About
     },
     {
-        name: "工作",
+        name: "work",
         component: WorkContainer
     },
     {
-        name: "博客",
+        name: "blog",
         component: null
     },
     {
-        name: "联系",
+        name: "contact",
         component: Contact
     }
 ];

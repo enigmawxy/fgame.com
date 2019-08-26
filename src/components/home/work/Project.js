@@ -5,7 +5,7 @@ import Label from "./Label"
 import "./project.css"
 
 const Project = ({ project, onClick }) => {
-    const className = project.highlight ? "highlight-card" : "normal-card"
+    const className = project.highlight ? "highlight-card" : "normal-card";
 
     return (
         <div className={"project-card clickable text-unselectable " +className} onClick={ ev => onClick(project.id) }>

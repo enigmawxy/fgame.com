@@ -31,7 +31,6 @@ const getAsyncAction = ({actionTypePrefix, asyncFunc}) => {
             dispatch(startAction());
             asyncFunc(args)
                 .then(data => {
-                    console.log(data);
                     dispatch(successAction(data))
                 })
                 .catch(error => dispatch(failureAction(error)))

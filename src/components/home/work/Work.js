@@ -25,6 +25,8 @@ class Work extends Component {
     };
 
     onProjectClick = projectId => {
+        console.log(this.props);
+        console.log(projectId);
         this.props.history.push(projectId)
     };
 
