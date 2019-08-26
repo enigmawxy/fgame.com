@@ -6,7 +6,8 @@ import store from "../redux/store";
 import Routes from './Routes'
 
 import ReactGA from 'react-ga';
-ReactGA.initialize('UA-50551684-4');
+// ReactGA.initialize('UA-50551684-4');
+ReactGA.initialize('UA-146475036-1');
 
 const Root = () => {
 
